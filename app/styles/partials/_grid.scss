@@ -1,0 +1,29 @@
+// -------------------------------------------------------------------------
+// SUSY GRID CONFIG
+// -------------------------------------------------------------------------
+
+@import "susy";
+
+$susy: (
+  flow: ltr, // ltr | rtl
+  output: float, // float | isolate
+  math: fluid, // fluid | static (requires column-width)
+  column-width: false, // false | value
+  container: 1020px, // length or % | auto
+  container-position: center, // left | center | right | <length> [*2] (grid padding)
+  last-flow: to,
+  columns: 12,
+  gutters: 1/4,
+  gutter-position: after, // before | after | split | inside | inside-static (requires column-width)
+  global-box-sizing: border-box, // content-box | border-box (affects inside/inside-static)
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background, // background | overlay
+    toggle: top left,
+  ),
+);
+
+$gallery_layout_new: layout( 12 .05 fluid float after);
+$gallery_layout_categorized: layout( 10 .55 fluid float after);
+$gallery_layout_other: layout( 10 .55 fluid float after);

@@ -1,0 +1,210 @@
+// -------------------------------------------------------------------------
+// Base
+// -------------------------------------------------------------------------
+
+body {
+  font-family: $font-family;
+  color: $black;
+}
+
+.link--dark {
+  color: #333;
+  padding-bottom: 3px;
+  text-decoration: none;
+  transition: border-color 250ms ease 0s, color 250ms ease 0s;
+  border-bottom: 4px solid transparent;
+}
+
+.link--dark:hover, .link--dark:active, .link--dark:focus {
+  border-bottom-color: #128cf4;
+}
+
+li img {
+  width: 100%; // For IE8
+  max-width: 100%;
+  height: auto;
+}
+
+#main {
+  @include container;
+}
+
+#main a:hover {
+  text-decoration: none;
+}
+
+#podcasts-new {
+  background: $red;
+  overflow: auto;
+  h1 {
+    color: $darkgray;
+    font-size: 28px;
+    font-weight: $f-medium;
+    padding: 115px 0 107px;
+    text-align: center;
+  }
+  h2 {
+    color: $white;
+    font-size: 21px;
+    font-weight: $f-medium;
+    line-height: .8;
+    padding-bottom: 22px;
+    span {
+      font-size: 14px;
+    }
+  }
+  h3 {
+    color: $white;
+    font-size: 18px;
+    font-weight: $f-medium;
+    line-height: 1.6;
+    margin-bottom: -4px;
+  }
+  img {
+    margin-bottom: 12px;
+  }
+  li {
+    display:inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: gutter();
+    span {
+      color: white;
+      display: block;
+      font-size: 12px;
+      font-weight: $f-normal;
+      margin-bottom: 30px;
+    }
+
+    @include with-layout($gallery_layout_new) {
+       
+      @media only screen and (min-width: $tablet) {
+        @include gallery(6 of 12);
+      }
+
+      @media only screen and (min-width: $desktop) {
+        @include gallery(3 of 12); 
+        span {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+#podcasts-new li:last-child {
+  padding-bottom: 38px;
+}
+
+.podcasts-new-wrapper {
+  @include pad(52px); 
+}
+
+#podcasts-categorized {
+  background: $white;
+  overflow: auto;
+  padding-top: 45px;
+  ul.category-menu {
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  li.category-menu--item {
+    display: inline-block;
+    padding: 0 42px 30px 0;
+    font-size: 16px;
+    font-weight: $f-medium;
+  }
+  li.category-menu--item:last-child {
+    padding: 0 0 30px 0;
+  }
+  h3 {
+    color: $gray;
+    font-size: 14px;
+    font-weight: $f-medium;
+    line-height: 1.2;
+    margin-bottom: -4px;
+    span {
+      display: block;
+      font-size: 12px;
+      font-weight: $f-light;
+      padding-top: 7px;
+    }
+  }
+  img {
+    margin-bottom: 8px;
+  }
+  li.podcast--item {
+    display:inline-block;
+    margin-bottom: gutter();
+    @include with-layout($gallery_layout_categorized) {
+
+      @media only screen and (min-width: $tablet) {
+        @include gallery(5 of 10); 
+      }
+
+      @media only screen and (min-width: $desktop) {
+        @include gallery(2 of 10); 
+      }
+    }
+  }
+}
+
+#podcasts-categorized li:last-child {
+  padding-bottom: 45px;
+}
+
+.podcasts-categorized-wrapper {
+  @include pad(122px); 
+}
+
+#podcasts-other {
+  background: $lightgray;
+  overflow: auto;
+  padding-top: 50px;
+    h2 {
+    color: $black;
+    font-size: 21px;
+    font-weight: $f-medium;
+    line-height: .8;
+    margin-bottom: 16px;
+    span {
+      font-size: 14px;
+    }
+  }
+  h3 {
+    color: $darkgray;
+    font-size: 14px;
+    font-weight: $f-medium;
+    line-height: 1.2;
+    margin-bottom: -4px;
+    span {
+      display: block;
+      font-size: 12px;
+      font-weight: $f-light;
+      padding-top: 7px;
+    }
+  }
+  img {
+    margin-bottom: 8px;
+  }
+  li.podcast--item {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 58px;
+    @include with-layout($gallery_layout_other) {
+
+      @media only screen and (min-width: $tablet) {
+        @include gallery(5 of 10); 
+      }
+
+      @media only screen and (min-width: $desktop) {
+        @include gallery(2 of 10); 
+      }
+    }
+  }
+}
+
+.podcasts-other-wrapper {
+  @include pad(42px); 
+}
