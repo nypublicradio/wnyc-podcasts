@@ -1,0 +1,414 @@
+// bower:scss
+// endbower
+
+// -------------------------------------------------------------------------
+// =FONT IMPORT
+// -------------------------------------------------------------------------
+
+@import url(https://media.wnyc.org/static/webfonts/gotham/177846/FA18A00299146D5E2.css);
+
+// -------------------------------------------------------------------------
+// =VARIABLES
+// -------------------------------------------------------------------------
+
+$font-size: 16px;
+$line-height: 1.5;
+$font-family: 'Gotham SSm A', 'Gotham SSm B', Arial, Helvetica, sans-serif;
+
+$f-thin: 100;
+$f-extra-light: 200;
+$f-light: 300;
+$f-normal: 400;
+$f-medium: 500;
+$f-semi-bold: 600;
+$f-bold: 700;
+$f-heavy: 800;
+$f-black: 900;
+
+$red: #de1e3d;
+$blue: #128cf4;
+$lightgray: #f1f1f1;
+$gray: #666;
+$darkgray: #333;
+$black: #000;
+$white: #fff;
+
+$phone: 480px;
+$tablet: 768px;
+$desktop: 992px;
+
+// -------------------------------------------------------------------------
+// =SUSY GRID CONFIG
+// -------------------------------------------------------------------------
+
+@import "susy";
+
+$susy: (
+  flow: ltr, // ltr | rtl
+  output: float, // float | isolate
+  math: fluid, // fluid | static (requires column-width)
+  column-width: false, // false | value
+  container: 1020px, // length or % | auto
+  container-position: center, // left | center | right | <length> [*2] (grid padding)
+  last-flow: to,
+  columns: 12,
+  gutters: 1/4,
+  gutter-position: after, // before | after | split | inside | inside-static (requires column-width)
+  global-box-sizing: border-box, // content-box | border-box (affects inside/inside-static)
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background, // background | overlay
+    toggle: top left,
+  ),
+);
+
+$gallery_layout_new: layout( 12 .05 fluid float after);
+$gallery_layout_categorized: layout( 10 .55 fluid float after);
+$gallery_layout_other: layout( 10 .55 fluid float after);
+
+// -------------------------------------------------------------------------
+// GLOBAL RESET
+// -------------------------------------------------------------------------
+
+/* reset -------------------------- */
+html, body, div, ul, ol, li, dl, dt, dd, 
+h1, h2, h3, h4, h5, h6, pre, form, dfn,
+del, p, blockquote, fieldset, input, textarea,
+select, article, aside, details, figcaption,
+figure, footer, header, hgroup, nav, section,
+button, canvas, video {
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6, pre, code, address,
+caption, cite, code, th, dfn, del {
+    font-weight: normal;
+    font-style: normal;
+}
+ul, ol {
+    list-style: none;
+}
+fieldset, img {
+    border: none;
+}
+caption, th {
+    text-align: left;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+    cursor: pointer;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+input, button, textarea {
+    line-height: normal;
+    font-family: $font-family;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+input[type="hidden"], [hidden], .hidden {
+    display: none;
+}
+textarea {
+    overflow: auto;
+    resize: none;
+}
+article, aside, details, figcaption, figure, footer,
+header, nav, section, .clearfix {
+    display: block;
+}
+audio, canvas, video {
+    display: inline-block;
+}
+a > img {
+    vertical-align: bottom;
+}
+strong, .strong, b {
+    font-weight: bold;
+}
+em, .italic, i {
+    font-style: italic;
+}
+del, .del {
+    text-decoration: line-through;
+}
+:focus {
+    outline: none;
+}
+img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+/* tools -------------------------- */
+.clear {
+    clear: both;
+    display: block;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+}
+.clearfix:after,
+.wrap:after,
+.spanning:after,
+.content:after,
+.main:after,
+aside:after,
+section:after,
+article:after,
+.text:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+}
+.align-left {
+    float: left !important;
+}
+.align-right {
+    float: right !important;
+}
+.overflow-hidden {
+    overflow: hidden;
+    display: block;
+}
+
+// -------------------------------------------------------------------------
+// =Base
+// -------------------------------------------------------------------------
+
+body {
+  font-family: $font-family;
+  color: $black;
+}
+
+.link--dark {
+  color: #333;
+  padding-bottom: 3px;
+  text-decoration: none;
+  transition: border-color 250ms ease 0s, color 250ms ease 0s;
+  border-bottom: 4px solid transparent;
+}
+
+.link--dark:hover, .link--dark:active, .link--dark:focus {
+  border-bottom-color: #128cf4;
+}
+
+li img {
+  width: 100%; // For IE8
+  max-width: 100%;
+  height: auto;
+}
+
+#main {
+  @include container;
+}
+
+#main a:hover {
+  text-decoration: none;
+}
+
+#podcasts-new {
+  background: $red;
+  overflow: auto;
+  h1 {
+    color: $darkgray;
+    font-size: 28px;
+    font-weight: $f-medium;
+    padding: 115px 0 107px;
+    text-align: center;
+  }
+  h2 {
+    color: $white;
+    font-size: 21px;
+    font-weight: $f-medium;
+    line-height: .8;
+    padding-bottom: 22px;
+    span {
+      font-size: 14px;
+    }
+  }
+  h3 {
+    color: $white;
+    font-size: 18px;
+    font-weight: $f-medium;
+    line-height: 1.6;
+    margin-bottom: -4px;
+  }
+  img {
+    margin-bottom: 12px;
+  }
+  li {
+    display:inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: gutter();
+    span {
+      color: white;
+      display: block;
+      font-size: 12px;
+      font-weight: $f-normal;
+      margin-bottom: 30px;
+    }
+
+    @include with-layout($gallery_layout_new) {
+       
+      @media only screen and (min-width: $tablet) {
+        @include gallery(6 of 12);
+      }
+
+      @media only screen and (min-width: $desktop) {
+        @include gallery(3 of 12); 
+        span {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+#podcasts-new li:last-child {
+  padding-bottom: 38px;
+}
+
+.podcasts-new-wrapper {
+  @include pad(52px); 
+}
+
+#podcasts-categorized {
+  background: $white;
+  overflow: auto;
+  padding-top: 45px;
+  ul.category-menu {
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  li.category-menu--item {
+    display: inline-block;
+    padding: 0 42px 30px 0;
+    font-size: 16px;
+    font-weight: $f-medium;
+  }
+  li.category-menu--item:last-child {
+    padding: 0 0 30px 0;
+  }
+  h3 {
+    color: $gray;
+    font-size: 14px;
+    font-weight: $f-medium;
+    line-height: 1.2;
+    margin-bottom: -4px;
+    span {
+      display: block;
+      font-size: 12px;
+      font-weight: $f-light;
+      padding-top: 7px;
+    }
+  }
+  img {
+    margin-bottom: 8px;
+  }
+  li.podcast--item {
+    display:inline-block;
+    margin-bottom: gutter();
+    @include with-layout($gallery_layout_categorized) {
+
+      @media only screen and (min-width: $tablet) {
+        @include gallery(5 of 10); 
+      }
+
+      @media only screen and (min-width: $desktop) {
+        @include gallery(2 of 10); 
+      }
+    }
+  }
+}
+
+#podcasts-categorized li:last-child {
+  padding-bottom: 45px;
+}
+
+.podcasts-categorized-wrapper {
+  @include pad(122px); 
+}
+
+#podcasts-other {
+  background: $lightgray;
+  overflow: auto;
+  padding-top: 50px;
+    h2 {
+    color: $black;
+    font-size: 21px;
+    font-weight: $f-medium;
+    line-height: .8;
+    margin-bottom: 16px;
+    span {
+      font-size: 14px;
+    }
+  }
+  h3 {
+    color: $darkgray;
+    font-size: 14px;
+    font-weight: $f-medium;
+    line-height: 1.2;
+    margin-bottom: -4px;
+    span {
+      display: block;
+      font-size: 12px;
+      font-weight: $f-light;
+      padding-top: 7px;
+    }
+  }
+  img {
+    margin-bottom: 8px;
+  }
+  li.podcast--item {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 58px;
+    @include with-layout($gallery_layout_other) {
+
+      @media only screen and (min-width: $tablet) {
+        @include gallery(5 of 10); 
+      }
+
+      @media only screen and (min-width: $desktop) {
+        @include gallery(2 of 10); 
+      }
+    }
+  }
+}
+
+.podcasts-other-wrapper {
+  @include pad(42px); 
+}
