@@ -25,17 +25,10 @@ li img {
   height: auto;
 }
 
-#main {
-  @include container;
-}
-
-#main a:hover {
-  text-decoration: none;
-}
-
 #podcasts-new {
   background: $red;
   overflow: auto;
+  width: 100%;
   h1 {
     color: $darkgray;
     font-size: 28px;
@@ -97,6 +90,7 @@ li img {
 }
 
 .podcasts-new-wrapper {
+  @include container;
   @include pad(52px); 
 }
 
@@ -104,6 +98,7 @@ li img {
   background: $white;
   overflow: auto;
   padding-top: 45px;
+  width: 100%;
   ul.category-menu {
     padding-bottom: 20px;
     text-align: center;
@@ -154,6 +149,7 @@ li img {
 }
 
 .podcasts-categorized-wrapper {
+  @include container;
   @include pad(122px); 
 }
 
@@ -161,6 +157,7 @@ li img {
   background: $lightgray;
   overflow: auto;
   padding-top: 50px;
+  width: 100%;
     h2 {
     color: $black;
     font-size: 21px;
@@ -206,5 +203,6 @@ li img {
 }
 
 .podcasts-other-wrapper {
+  @include container;
   @include pad(42px); 
 }
