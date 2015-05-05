@@ -7,6 +7,23 @@ body {
   color: $black;
 }
 
+#header {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+#main {
+  -webkit-font-smoothing: antialiased;
+}
+
+#main a, #main a:visited, #main a:hover, #main a:active, #main a:focus {
+  text-decoration: none
+}
+
+#footer_container {
+    margin-top: 0;
+}
+
 .link--dark {
   color: #333;
   padding-bottom: 3px;
@@ -16,7 +33,14 @@ body {
 }
 
 .link--dark:hover, .link--dark:active, .link--dark:focus {
-  border-bottom-color: #128cf4;
+  border-bottom-color: $teal;
+  text-decoration: none;
+}
+
+li img {
+  width: 100%; // For IE8
+  max-width: 100%;
+  height: auto;
 }
 
 .hidden {
@@ -44,16 +68,19 @@ body {
   overflow: auto;
   width: 100%;
   h1 {
-    color: $darkgray;
-    font-size: 28px;
-    font-weight: $f-medium;
-    padding: 115px 0 107px;
+    color: $white;
+    font-size: 36px;
+    font-weight: $f-normal;
+    padding: 50px 0 40px;
     text-align: center;
+    span {
+      font-weight: $f-heavy;
+    }
   }
   h2 {
     color: $white;
-    font-size: 21px;
-    font-weight: $f-medium;
+    font-size: 20px;
+    font-weight: $f-semi-bold;
     line-height: .8;
     padding-bottom: 22px;
     span {
@@ -63,9 +90,9 @@ body {
   h3 {
     color: $white;
     font-size: 18px;
-    font-weight: $f-medium;
-    line-height: 1.6;
-    margin-bottom: -4px;
+    font-weight: $f-semi-bold;
+    line-height: 1.2;
+    margin-bottom: 0;
   }
   img {
     margin-bottom: 12px;
@@ -78,8 +105,8 @@ body {
     span {
       color: white;
       display: block;
-      font-size: 12px;
-      font-weight: $f-normal;
+      font-size: 14px;
+      font-weight: $f-semi-bold;
       margin-bottom: 30px;
     }
 
@@ -108,8 +135,6 @@ body {
   @include pad(52px); 
 }
 
-
-
 #newsletter-signup {
   background: $black;
   overflow: auto;
@@ -117,8 +142,8 @@ body {
   width: 100%;
   h2 {
     color: $white;
-    font-size: 21px;
-    font-weight: $f-medium;
+    font-size: 20px;
+    font-weight: $f-semi-bold;
     padding-bottom: 11px;
   }
   p {
@@ -132,8 +157,8 @@ body {
     background-color: $darkgray;
     border: none;
     color: $white;
-    font-size: 16px;
-    font-family: 'Gotham SSm A', 'Gotham SSm B', Gotham, Lato, Arial;
+    font-size: 14px;
+    font-family: $font-family;
     height: 50px;
     padding: 0 1.2em;
     vertical-align: top;
@@ -164,10 +189,10 @@ body {
   }
 
   .btn--large {
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-family: $font-family;
+    font-size: 16px;
+    font-weight: $f-semi-bold;
     height: 50px;
-    letter-spacing: -0.5px;
     line-height: 50px;
     padding: 0 18px 0;
   }
@@ -182,23 +207,6 @@ body {
   text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #podcasts-categorized {
   background: $white;
   overflow: auto;
@@ -211,31 +219,33 @@ body {
   li.category-menu--item {
     display: inline-block;
     padding: 0 42px 30px 0;
-    font-size: 16px;
-    font-weight: $f-medium;
+    font-size: 18px;
+    font-weight: $f-normal;
   }
   li.category-menu--item:last-child {
     padding: 0 0 30px 0;
   }
   h3 {
-    color: $gray;
-    font-size: 14px;
-    font-weight: $f-medium;
-    line-height: 1.2;
-    margin-bottom: -4px;
-    span {
-      display: block;
-      font-size: 12px;
-      font-weight: $f-light;
-      padding-top: 7px;
-    }
+  color: $black;
+  font-size: 16px;
+  font-weight: $f-normal;
+  line-height: 1.2;  
+  }
+  span {
+  color: $black;
+  display: block;
+  font-size: 12px;
+  font-weight: $f-normal;
+  padding-top: 5px;
   }
   img {
     margin-bottom: 8px;
+    border: 1px solid #eee;
   }
   li.podcast--item {
     display:inline-block;
-    margin-bottom: gutter();
+    padding-bottom: 55px;
+    text-align: center;
     @include with-layout($gallery_layout_categorized) {
 
       @media only screen and (min-width: $tablet) {
@@ -266,7 +276,7 @@ body {
     h2 {
     color: $black;
     font-size: 21px;
-    font-weight: $f-medium;
+    font-weight: $f-normal;
     line-height: .8;
     margin-bottom: 16px;
     span {
@@ -275,25 +285,26 @@ body {
   }
   h3 {
     color: $darkgray;
-    font-size: 14px;
-    font-weight: $f-medium;
+    font-size: 16px;
+    font-weight: $f-normal;
     line-height: 1.2;
-    margin-bottom: -4px;
+  }
     span {
-      display: block;
-      font-size: 12px;
-      font-weight: $f-light;
-      padding-top: 7px;
-    }
+    display: block;
+    font-size: 12px;
+    font-weight: $f-normal;
+    padding-top: 5px;
   }
   img {
     margin-bottom: 8px;
+    border: 1px solid #eee;
   }
   li.podcast--item {
     display: inline-block;
     margin-left: 0;
     margin-right: 0;
-    padding-bottom: 58px;
+    padding-bottom: 55px;
+    text-align: center;
     @include with-layout($gallery_layout_other) {
 
       @media only screen and (min-width: $tablet) {
