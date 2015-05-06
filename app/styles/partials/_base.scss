@@ -32,7 +32,7 @@ body {
   border-bottom: 4px solid transparent;
 }
 
-.link--dark:hover, .link--dark:active, .link--dark:focus {
+.link--dark:hover, .link--dark:active, .link--dark:focus, .active {
   border-bottom-color: $teal;
   text-decoration: none;
 }
@@ -215,16 +215,163 @@ li img {
   ul.category-menu {
     padding-bottom: 20px;
     text-align: center;
+    display: none;
+    @media only screen and (min-width: $tablet) {
+      display: block; 
+    }
   }
-  li.category-menu--item {
-    display: inline-block;
-    padding: 0 42px 30px 0;
+  li.category-menu--item { 
     font-size: 18px;
     font-weight: $f-normal;
+    @media only screen and (min-width: $tablet) {
+      display: inline-block;
+      padding: 0 42px 30px 0; 
+    }
   }
   li.category-menu--item:last-child {
     padding: 0 0 30px 0;
   }
+
+.category-dd-wrapper {
+  /* Size and position */
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  @media only screen and (min-width: $tablet) {
+      display: none; 
+    }
+
+  /* Styles */
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  outline: none;
+  span {
+  color: $black;
+  display: block;
+  font-size: 18px;
+  font-weight: $f-semi-bold;
+  padding-top: 5px;
+  }
+}
+
+.category-dd-wrapper:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -3px;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #ccc transparent;
+}
+
+.category-dd-wrapper .dropdown {
+/* Size & position */
+  position: absolute;
+  top: 140%;
+  left: 0;
+  right: 0;
+
+  /* Styles */
+  background: white;
+  border-radius: inherit;
+  border: 1px solid #ccc;
+  font-weight: $f-normal;
+  transition: all 250ms ease-in;
+  list-style: none;
+
+  /* Hiding */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.category-dd-wrapper .dropdown:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 100%;
+  right: 15px;
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: #fff transparent;    
+}
+
+.category-dd-wrapper .dropdown:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 100%;
+  right: 13px;
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.1) transparent;    
+}
+
+.category-dd-wrapper .dropdown li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: $black;
+  transition: all 250ms ease-out;
+}
+
+.category-dd-wrapper .dropdown li:first-of-type a {
+  border-radius: 5px 5px 0 0;
+}
+
+.category-dd-wrapper .dropdown li:last-of-type a {
+  border: none;
+  border-radius: 0 0 5px 5px;
+}
+
+/* Hover state */
+
+.category-dd-wrapper .dropdown li:hover a {
+  background: #f3f8f8;
+}
+
+/* Active state */
+
+.category-dd-wrapper.active .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* No CSS3 support */
+
+.no-opacity       .category-dd-wrapper .dropdown,
+.no-pointerevents .category-dd-wrapper .dropdown {
+  display: none;
+  opacity: 1; /* If opacity support but no pointer-events support */
+  pointer-events: auto; /* If pointer-events support but no pointer-events support */
+}
+
+.no-opacity       .category-dd-wrapper.active .dropdown,
+.no-pointerevents .category-dd-wrapper.active .dropdown {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   h3 {
   color: $black;
   font-size: 16px;
@@ -322,3 +469,13 @@ li img {
   @include container;
   @include pad(42px); 
 }
+
+
+
+
+
+
+
+
+
+

@@ -92,11 +92,61 @@ $('.category-menu--item a').click(function(e) {
     dataType: 'jsonp',
     success: function(d) {
       
-      $('.podcast-page-storytelling').empty();
+      $('.podcast-page-storytelling').empty();      
+      $('.category-menu--item a').removeClass('active');
       
       d.results.forEach(function(result) {
         template(result, selector);
       });
     }
   });
+});
+
+
+// Build category Select box functionality for mobile
+function DropDown(el) {
+  'use strict';
+  this.dd = el;
+  this.placeholder = this.dd.children('span');
+  this.opts = this.dd.find('ul.dropdown > li');
+  this.val = '';
+  this.index = -1;
+  this.initEvents();
+}
+DropDown.prototype = {
+  initEvents : function() {
+    'use strict';
+    var obj = this;
+
+    obj.dd.on('click', function(event){
+      $(this).toggleClass('active');
+      return false;
+    });
+
+    obj.opts.on('click',function(){
+      var opt = $(this);
+      obj.val = opt.text();
+      obj.index = opt.index();
+      obj.placeholder.text(obj.val);
+    });
+  },
+  getValue : function() {
+    'use strict';
+    return this.val;
+  },
+  getIndex : function() {
+    'use strict';
+    return this.index;
+  }
+};
+
+$(function() {
+  'use strict';
+  var dd = new DropDown( $('#dd') );
+
+  $(document).click(function() {
+    // all dropdowns
+    $('.wrapper-dropdown-3').removeClass('active');
+  });
+
 });
