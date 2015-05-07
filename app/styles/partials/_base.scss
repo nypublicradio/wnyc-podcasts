@@ -135,24 +135,24 @@ li img {
   }
   p {
     color: $white;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: $f-normal;
-    padding-bottom: 22px;
+    padding: 0 22px 15px;
   }
   input[type="email"] {
   	-webkit-appearance: none;
     background-color: $darkgray;
     box-sizing: border-box;
-
     border: none;
     color: $white;
     font-size: 14px;
     font-family: $font-family;
-    height: 50px;
+    height: 70px;
     padding: 0 1.2em;
     vertical-align: top;
-    width: 75%;
+    width: 85%;
     @media only screen and (min-width: $tablet) {
+      height: 50px;
       width: 30%;
     }
   }
@@ -164,12 +164,13 @@ li img {
     cursor: pointer;
     display: block;
     font-size: 0.875rem;
+    height: 70px;
     line-height: 34px;
     padding: 0 13px;
     margin: 10px auto 38px;
     transition: background-color 250ms ease 0s, border-color 250ms ease 0s, color 250ms ease 0s;
     vertical-align: top;
-    width: 75%;
+    width: 85%;
     @media only screen and (min-width: $tablet) {
       display: inline-block;
       margin: 0 0 38px;
@@ -190,12 +191,14 @@ li img {
     font-family: $font-family;
     font-size: 16px;
     font-weight: $f-semi-bold;
-    height: 50px;
+    height: 70px;
     line-height: 50px;
     padding: 0 18px 0;
+    @media only screen and (min-width: $tablet) {
+      height: 50px;
+    }
   }
-  .btn, .daily-form a {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  .btn, input[type=email]  {
     -webkit-appearance: none;
   }
 }
@@ -219,9 +222,9 @@ li img {
     margin: 0 auto;
     margin-bottom: 50px;
     outline: none;
-    padding: 10px;
+    padding: 20px;
     position: relative;
-    width: 90%;    
+    width: 85%;    
   	span {
   	  color: $black;
   	  display: block;
@@ -285,7 +288,7 @@ li img {
     border-bottom: 1px solid #ccc;
     color: $black;
     display: block;
-    padding: 15px 10px;;
+    padding: 20px;
     text-decoration: none;
     transition: all 250ms ease-out;
   }
@@ -335,8 +338,16 @@ li img {
         transition: border-color 250ms ease 0s, color 250ms ease 0s;
         border-bottom: 4px solid transparent;
     }
-      a.link--dark:hover, .link--dark:active, .link--dark:focus, .active {
+      a.link--dark:hover, .link--dark:active, .link--dark:focus {
         border-bottom-color: $teal;
+        text-decoration: none;
+      }
+      a.active {
+        border-bottom: 4px solid transparent;
+        border-bottom-color: $teal;
+        color: #333;
+        padding-bottom: 3px;
+        transition: border-color 250ms ease 0s, color 250ms ease 0s;
         text-decoration: none;
       }
     }
@@ -388,10 +399,7 @@ li img {
 
 .podcasts-categorized-wrapper {
   @include container;
-  padding: 0 42px;
-  @media only screen and (min-width: $tablet) {
-    padding: 0 122px;
-  }  
+  padding: 0 42px; 
 }
 
 #podcasts-other {

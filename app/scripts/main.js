@@ -10,6 +10,7 @@ var template = (function template() {
   var $li = $('<li/>').addClass('podcast--item'),
     $span = $('<span/>'),
     $h3 = $('<h3/>'),
+    $div = $('<div/>'),
     $img = $('<img/>'),
     $a = $('<a/>');
 
@@ -94,14 +95,17 @@ $('.category-menu--item a').click(function(e) {
     dataType: 'jsonp',
     success: function(d) {
 
-      $(selector).fadeIn('250');
-
-      $(selector).empty(); 
-      $('.category-menu--item a').removeClass('active');
+      $(selector).fadeOut('fast', function() {
+        $(selector).empty();
       
-      d.results.forEach(function(result) {
-        template(result, selector);   
-      });
+       d.results.forEach(function(result) {
+        template(result, selector);  
+        }); 
+        
+        $(selector).fadeIn('fast'); 
+
+        $('.category-menu--item a').removeClass('active');  
+      });     
     }
   });
 });
