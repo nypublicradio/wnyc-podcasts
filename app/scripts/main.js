@@ -69,6 +69,8 @@ BUCKETS.forEach(function(b,i) {
     // this function, passing in whatever the server returns 
     // as the first parameter
     success: function(d) {
+
+      $(selector).fadeIn('250');  
       
       // loop through the results, passing in the result and 
       // the selector we made just up there
@@ -91,19 +93,20 @@ $('.category-menu--item a').click(function(e) {
     jsonpCallback: jsonpCallback,
     dataType: 'jsonp',
     success: function(d) {
-      
-      $('.podcast-page-storytelling').empty();      
+
+      $(selector).fadeIn('250');
+
+      $(selector).empty(); 
       $('.category-menu--item a').removeClass('active');
       
       d.results.forEach(function(result) {
-        template(result, selector);
+        template(result, selector);   
       });
     }
   });
 });
 
-
-// Build category Select box functionality for mobile
+// Build category dropdown menu
 function DropDown(el) {
   'use strict';
   this.dd = el;
@@ -113,6 +116,7 @@ function DropDown(el) {
   this.index = -1;
   this.initEvents();
 }
+
 DropDown.prototype = {
   initEvents : function() {
     'use strict';
@@ -142,11 +146,9 @@ DropDown.prototype = {
 
 $(function() {
   'use strict';
-  var dd = new DropDown( $('#dd') );
+  var dd = new DropDown( $('#dd'));
 
   $(document).click(function() {
-    // all dropdowns
-    $('.wrapper-dropdown-3').removeClass('active');
+    $('.category-dd-wrapper').removeClass('active');
   });
-
 });

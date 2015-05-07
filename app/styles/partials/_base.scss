@@ -132,7 +132,7 @@ li img {
 
 .podcasts-new-wrapper {
   @include container;
-  @include pad(52px); 
+  padding: 0 52px; 
 }
 
 #newsletter-signup {
@@ -154,6 +154,7 @@ li img {
     padding-bottom: 22px;
   }
   input[type="email"] {
+  	-webkit-appearance: none;
     background-color: $darkgray;
     border: none;
     color: $white;
@@ -187,7 +188,6 @@ li img {
     border-color: #1068b2;
     color: white;
   }
-
   .btn--large {
     font-family: $font-family;
     font-size: 16px;
@@ -211,7 +211,105 @@ li img {
   background: $white;
   overflow: auto;
   padding-top: 45px;
-  width: 100%;
+  width: 100%;  
+  .category-dd-wrapper {
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    outline: none;
+    padding: 10px;
+    position: relative;
+    width: 90%;    
+  	span {
+  	  color: $black;
+  	  display: block;
+  	  font-size: 18px;
+  	  font-weight: $f-semi-bold;
+  	  padding-top: 5px;
+  	  }
+    @media only screen and (min-width: $tablet) {
+      display: none; 
+    }
+  }
+  .category-dd-wrapper:after {
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #ccc transparent;
+    content: "";   
+    height: 0;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -3px;
+    width: 0;
+  }
+  .category-dd-wrapper .dropdown {
+    background: white;
+    border-radius: inherit;
+    border: 1px solid #ccc;
+    font-weight: $f-normal;
+    list-style: none;
+    position: absolute;
+    top: 140%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 250ms ease-in;    
+  }
+  .category-dd-wrapper .dropdown:after {
+    border-color: #fff transparent;
+    border-style: solid;
+    border-width: 0 6px 6px 6px;    
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 15px;   
+  }
+  .category-dd-wrapper .dropdown:before {
+    border-color: rgba(0,0,0,0.1) transparent; 
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 13px;      
+  }
+  .category-dd-wrapper .dropdown li a {
+    color: $black;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 250ms ease-out;
+  }
+  .category-dd-wrapper .dropdown li:first-of-type a {
+    border-radius: 5px 5px 0 0;
+  }
+  .category-dd-wrapper .dropdown li:last-of-type a {
+    border: none;
+    border-radius: 0 0 5px 5px;
+  }
+  .category-dd-wrapper.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .no-opacity .category-dd-wrapper .dropdown,
+  .no-pointerevents .category-dd-wrapper .dropdown {
+    display: none;
+    opacity: 1; /* If opacity support but no pointer-events support */
+    pointer-events: auto; /* If pointer-events support but no pointer-events support */
+  }
+  .no-opacity .category-dd-wrapper.active .dropdown,
+  .no-pointerevents .category-dd-wrapper.active .dropdown {
+    display: block;
+  }
   ul.category-menu {
     padding-bottom: 20px;
     text-align: center;
@@ -231,159 +329,18 @@ li img {
   li.category-menu--item:last-child {
     padding: 0 0 30px 0;
   }
-
-.category-dd-wrapper {
-  /* Size and position */
-  position: relative;
-  width: 90%;
-  margin: 0 auto;
-  padding: 10px;
-  @media only screen and (min-width: $tablet) {
-      display: none; 
-    }
-
-  /* Styles */
-  background: #fff;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  outline: none;
-  span {
-  color: $black;
-  display: block;
-  font-size: 18px;
-  font-weight: $f-semi-bold;
-  padding-top: 5px;
-  }
-}
-
-.category-dd-wrapper:after {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  margin-top: -3px;
-  border-width: 6px 6px 0 6px;
-  border-style: solid;
-  border-color: #ccc transparent;
-}
-
-.category-dd-wrapper .dropdown {
-/* Size & position */
-  position: absolute;
-  top: 140%;
-  left: 0;
-  right: 0;
-
-  /* Styles */
-  background: white;
-  border-radius: inherit;
-  border: 1px solid #ccc;
-  font-weight: $f-normal;
-  transition: all 250ms ease-in;
-  list-style: none;
-
-  /* Hiding */
-  opacity: 0;
-  pointer-events: none;
-}
-
-.category-dd-wrapper .dropdown:after {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  bottom: 100%;
-  right: 15px;
-  border-width: 0 6px 6px 6px;
-  border-style: solid;
-  border-color: #fff transparent;    
-}
-
-.category-dd-wrapper .dropdown:before {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  bottom: 100%;
-  right: 13px;
-  border-width: 0 8px 8px 8px;
-  border-style: solid;
-  border-color: rgba(0,0,0,0.1) transparent;    
-}
-
-.category-dd-wrapper .dropdown li a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: $black;
-  transition: all 250ms ease-out;
-}
-
-.category-dd-wrapper .dropdown li:first-of-type a {
-  border-radius: 5px 5px 0 0;
-}
-
-.category-dd-wrapper .dropdown li:last-of-type a {
-  border: none;
-  border-radius: 0 0 5px 5px;
-}
-
-/* Hover state */
-
-.category-dd-wrapper .dropdown li:hover a {
-  background: #f3f8f8;
-}
-
-/* Active state */
-
-.category-dd-wrapper.active .dropdown {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* No CSS3 support */
-
-.no-opacity       .category-dd-wrapper .dropdown,
-.no-pointerevents .category-dd-wrapper .dropdown {
-  display: none;
-  opacity: 1; /* If opacity support but no pointer-events support */
-  pointer-events: auto; /* If pointer-events support but no pointer-events support */
-}
-
-.no-opacity       .category-dd-wrapper.active .dropdown,
-.no-pointerevents .category-dd-wrapper.active .dropdown {
-  display: block;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   h3 {
-  color: $black;
-  font-size: 16px;
-  font-weight: $f-normal;
-  line-height: 1.2;  
+	  color: $black;
+	  font-size: 16px;
+	  font-weight: $f-normal;
+	  line-height: 1.2;  
   }
   span {
-  color: $black;
-  display: block;
-  font-size: 12px;
-  font-weight: $f-normal;
-  padding-top: 5px;
+	  color: $black;
+	  display: block;
+	  font-size: 12px;
+	  font-weight: $f-normal;
+	  padding-top: 5px;
   }
   img {
     margin-bottom: 8px;
@@ -412,7 +369,10 @@ li img {
 
 .podcasts-categorized-wrapper {
   @include container;
-  @include pad(122px); 
+  padding: 0 42px;
+  @media only screen and (min-width: $tablet) {
+    padding: 0 122px;
+  }  
 }
 
 #podcasts-other {
@@ -467,15 +427,9 @@ li img {
 
 .podcasts-other-wrapper {
   @include container;
-  @include pad(42px); 
+  padding: 0 42px;
 }
 
-
-
-
-
-
-
-
-
-
+.podcast-page-new-amazing, .podcast-page-storytelling, .podcast-page-other-podcasts {
+  display: none;
+}
