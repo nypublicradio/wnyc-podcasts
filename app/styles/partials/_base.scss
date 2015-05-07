@@ -24,19 +24,6 @@ body {
     margin-top: 0;
 }
 
-.link--dark {
-  color: #333;
-  padding-bottom: 3px;
-  text-decoration: none;
-  transition: border-color 250ms ease 0s, color 250ms ease 0s;
-  border-bottom: 4px solid transparent;
-}
-
-.link--dark:hover, .link--dark:active, .link--dark:focus, .active {
-  border-bottom-color: $teal;
-  text-decoration: none;
-}
-
 li img {
   width: 100%; // For IE8
   max-width: 100%;
@@ -150,12 +137,13 @@ li img {
     color: $white;
     font-size: 14px;
     font-weight: $f-normal;
-    line-height: .8;
     padding-bottom: 22px;
   }
   input[type="email"] {
   	-webkit-appearance: none;
     background-color: $darkgray;
+    box-sizing: border-box;
+
     border: none;
     color: $white;
     font-size: 14px;
@@ -163,20 +151,30 @@ li img {
     height: 50px;
     padding: 0 1.2em;
     vertical-align: top;
-    width: 30%;
+    width: 75%;
+    @media only screen and (min-width: $tablet) {
+      width: 30%;
+    }
   }
   .btn {
     background: none repeat scroll 0 0 transparent;
     border: 1px solid rgba(136, 136, 136, 0.5);
+    box-sizing: border-box;
     color: #888;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     font-size: 0.875rem;
     line-height: 34px;
     padding: 0 13px;
-    margin: 0 0 38px;
+    margin: 10px auto 38px;
     transition: background-color 250ms ease 0s, border-color 250ms ease 0s, color 250ms ease 0s;
     vertical-align: top;
+    width: 75%;
+    @media only screen and (min-width: $tablet) {
+      display: inline-block;
+      margin: 0 0 38px;
+      width: 9.4%;
+    }
   }
   .btn--blue {
     background-color: #128cf4;
@@ -211,6 +209,7 @@ li img {
   background: $white;
   overflow: auto;
   padding-top: 45px;
+
   width: 100%;  
   .category-dd-wrapper {
     background: #fff;
@@ -283,9 +282,10 @@ li img {
     right: 13px;      
   }
   .category-dd-wrapper .dropdown li a {
+    border-bottom: 1px solid #ccc;
     color: $black;
     display: block;
-    padding: 10px;
+    padding: 15px 10px;;
     text-decoration: none;
     transition: all 250ms ease-out;
   }
@@ -295,6 +295,9 @@ li img {
   .category-dd-wrapper .dropdown li:last-of-type a {
     border: none;
     border-radius: 0 0 5px 5px;
+  }
+  .category-dd-wrapper .dropdown li:hover a {
+    background: transparent;
   }
   .category-dd-wrapper.active .dropdown {
     opacity: 1;
@@ -321,13 +324,29 @@ li img {
   li.category-menu--item { 
     font-size: 18px;
     font-weight: $f-normal;
+
     @media only screen and (min-width: $tablet) {
       display: inline-block;
       padding: 0 42px 30px 0; 
+      a.link--dark {
+        color: #333;
+        padding-bottom: 3px;
+        text-decoration: none;
+        transition: border-color 250ms ease 0s, color 250ms ease 0s;
+        border-bottom: 4px solid transparent;
+    }
+      a.link--dark:hover, .link--dark:active, .link--dark:focus, .active {
+        border-bottom-color: $teal;
+        text-decoration: none;
+      }
     }
   }
+
   li.category-menu--item:last-child {
-    padding: 0 0 30px 0;
+    padding: 0;
+    @media only screen and (min-width: $tablet) {
+      padding: 0 0 30px 0;
+    }
   }
   h3 {
 	  color: $black;
