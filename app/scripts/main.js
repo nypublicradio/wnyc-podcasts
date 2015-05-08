@@ -8,11 +8,11 @@
 var template = (function template() {
   'use strict';
   var $li = $('<li/>').addClass('podcast--item'),
-    $span = $('<span/>'),
-    $h3 = $('<h3/>'),
-    $div = $('<div/>'),
-    $img = $('<img/>'),
-    $a = $('<a/>');
+      $span = $('<span/>'),
+      $h3 = $('<h3/>'),
+      $img = $('<img/>'),
+      $a = $('<a/>'),
+      $div = $('<div/>').addClass('img-wrapper');
 
   function cloneNodes () {
     return [
@@ -20,7 +20,9 @@ var template = (function template() {
       $span.clone(),
       $h3.clone(),
       $img.clone(),
-      $a.clone()
+      $a.clone(),
+      $a.clone(),
+      $div.clone()
     ];
   }
 
@@ -29,18 +31,19 @@ var template = (function template() {
   // of the ajax call
   return function(result, selector) {
     var nodes = cloneNodes();
+    nodes[5].attr('href', result.url);
     nodes[4].attr('href', result.url);
     nodes[3].attr({
       src: result.image.url,
       alt: result.image.alt_text
     });
     nodes[2].text(result.title);
-    nodes[1].text(result.audio);
+    nodes[1].text(result.audio); 
 
         $(selector).append(
            nodes[0].append(
-             nodes[4].append(nodes[3])
-              .append(nodes[2]))
+             nodes[6].append(nodes[4].append(nodes[3])))
+              .append(nodes[5].append(nodes[2]))
               .append(nodes[1])
           );
   };
