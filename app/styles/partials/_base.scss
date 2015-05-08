@@ -54,6 +54,13 @@ li img {
   background: $red;
   overflow: auto;
   width: 100%;
+  text-align: center;
+     @media only screen and (min-width: $tablet) {
+        text-align: center;
+    }
+    @media only screen and (min-width: $desktop) {
+        text-align: left;
+    }
   h1 {
     color: $white;
     font-size: 36px;
@@ -104,13 +111,11 @@ li img {
     }
 
     @include with-layout($gallery_layout_new) {
+      @include gallery(6 of 12);
        
-      @media only screen and (min-width: $tablet) {
-        @include gallery(6 of 12);
-      }
-
       @media only screen and (min-width: $desktop) {
         @include gallery(3 of 12); 
+        @include gutters(3em);
         span {
           margin-bottom: 0;
         }
@@ -147,6 +152,7 @@ li img {
   }
   input[type="email"] {
   	-webkit-appearance: none;
+    border-radius: none;
     background-color: $darkgray;
     box-sizing: border-box;
     border: none;
@@ -159,12 +165,18 @@ li img {
     width: 85%;
     @media only screen and (min-width: $tablet) {
       height: 50px;
-      width: 30%;
+      width: 44%;
+    }
+    @media only screen and (min-width: $desktop) {
+      height: 50px;
+      width: 36%;
     }
   }
   .btn {
     background: none repeat scroll 0 0 transparent;
     border: 1px solid rgba(136, 136, 136, 0.5);
+    -webkit-appearance: none;
+    border-radius: none;
     box-sizing: border-box;
     color: #888;
     cursor: pointer;
@@ -180,6 +192,9 @@ li img {
     @media only screen and (min-width: $tablet) {
       display: inline-block;
       margin: 0 0 38px;
+      width: 12%;
+    }
+    @media only screen and (min-width: $desktop) {
       width: 9.4%;
     }
   }
@@ -222,6 +237,7 @@ li img {
   width: 100%;  
   .category-dd-wrapper {
     background: #fff;
+    box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
     cursor: pointer;
@@ -394,10 +410,7 @@ li img {
     padding-bottom: 55px;
     text-align: center;
     @include with-layout($gallery_layout_categorized) {
-
-      @media only screen and (min-width: $tablet) {
-        @include gallery(5 of 10); 
-      }
+      @include gallery(5 of 10); 
 
       @media only screen and (min-width: $desktop) {
         @include gallery(2 of 10); 
@@ -420,6 +433,13 @@ li img {
   overflow: auto;
   padding-top: 50px;
   width: 100%;
+  text-align: center;
+   @media only screen and (min-width: $tablet) {
+      text-align: center;
+  }
+  @media only screen and (min-width: $desktop) {
+      text-align: left;
+  }
     h2 {
     color: $black;
     font-size: 21px;
@@ -459,10 +479,7 @@ li img {
     padding-bottom: 55px;
     text-align: center;
     @include with-layout($gallery_layout_other) {
-
-      @media only screen and (min-width: $tablet) {
-        @include gallery(5 of 10); 
-      }
+      @include gallery(5 of 10); 
 
       @media only screen and (min-width: $desktop) {
         @include gallery(2 of 10); 
