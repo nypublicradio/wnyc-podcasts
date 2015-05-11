@@ -107,10 +107,16 @@ $('.category-menu--item a').click(function(e) {
         
         $(selector).fadeIn('fast'); 
 
-        $('.category-menu--item a').removeClass('active');  
       });     
     }
   });
+});
+
+// Set/remove 'active' class on clicked category links 
+$('.category-menu').on('click', 'a', function() {
+  'use strict';
+  $('.category-menu a.active').removeClass('active');
+  $(this).addClass('active');
 });
 
 // Build category dropdown menu
@@ -154,8 +160,8 @@ DropDown.prototype = {
 $(function() {
   'use strict';
   var dd = new DropDown( $('#dd'));
-  
+
   $(document).click(function() {
     $('.category-dd-wrapper').removeClass('active');
-  });
+  }); 
 });

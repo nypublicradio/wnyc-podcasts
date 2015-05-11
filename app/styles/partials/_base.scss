@@ -14,6 +14,7 @@ body {
 
 #main {
   -webkit-font-smoothing: antialiased;
+
 }
 
 #main a, #main a:visited, #main a:hover, #main a:active, #main a:focus {
@@ -51,7 +52,7 @@ li img {
 }
 
 #podcasts-new {
-  background: $red;
+  background: $darkgray;
   overflow: auto;
   width: 100%;
   text-align: center;
@@ -81,9 +82,9 @@ li img {
     font-size: 30px;
     font-weight: $f-semi-bold;
     line-height: .8;
-    padding-bottom: 42px;
+    padding-bottom: 36px;
     span {
-      font-size: 20px;
+      font-size: 18px;
       @media only screen and (min-width: $desktop) {
         font-size: 14px;
       }
@@ -95,23 +96,23 @@ li img {
   }
   h3 {
     color: $white;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: $f-semi-bold;
     line-height: 1.2;
     margin-bottom: 0;
-    padding-bottom: 6px;
+    padding: 5px 0 2px;   
     @media only screen and (min-width: $desktop) {
       font-size: 18px;
-      padding-bottom: 0x;
+      padding: 5px 0 2px;
     }
   }
   .img-wrapper {
     background: $white;
     border: 1px solid #eee;
-    padding: 30px;
+    padding: 20px;
     margin-bottom: 8px;
     @media only screen and (min-width: $desktop) {
-      padding: 0;
+      padding: 20px;
     }
   }
   li {
@@ -141,7 +142,7 @@ li img {
 }
 
 #podcasts-new li:last-child {
-  padding-bottom: 38px;
+  padding-bottom: 30px;
 }
 
 .podcasts-new-wrapper {
@@ -152,8 +153,12 @@ li img {
 #newsletter-signup {
   background: $black;
   overflow: auto;
-  padding: 24px 0 33px 0;
+  padding: 24px 0 33px ;
   width: 100%;
+  @media only screen and (min-width: $desktop) {
+    font-size: 20px;
+    padding: 0;
+  }
   h2 {
     color: $white;
     font-size: 28px;
@@ -414,7 +419,7 @@ li img {
   }
   h3 {
 	  color: $black;
-	  font-size: 24px;
+	  font-size: 20px;
 	  font-weight: $f-normal;
 	  line-height: 1.2; 
     @media only screen and (min-width: $desktop) {
@@ -498,7 +503,7 @@ li img {
   }
   h3 {
     color: $darkgray;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: $f-normal;
     line-height: 1.2;
     @media only screen and (min-width: $desktop) {
@@ -511,6 +516,7 @@ li img {
     font-weight: $f-normal;
     padding-top: 5px;
     @media only screen and (min-width: $desktop) {
+      display: inline;
       font-size: 12px;
     }
   }
