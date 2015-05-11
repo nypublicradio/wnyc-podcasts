@@ -55,47 +55,64 @@ li img {
   overflow: auto;
   width: 100%;
   text-align: center;
-     @media only screen and (min-width: $tablet) {
-        text-align: center;
+    @media only screen and (min-width: $tablet) {
+      text-align: center;
     }
     @media only screen and (min-width: $desktop) {
-        text-align: left;
+      text-align: left;
     }
   h1 {
     color: $white;
-    font-size: 36px;
+    font-size: 54px;
     font-weight: $f-normal;
+    line-height: 1.1;
     padding: 50px 0 40px;
     text-align: center;
     span {
-      font-weight: $f-heavy;
+      font-weight: $f-heavy;      
+    }
+    @media only screen and (min-width: $desktop) {
+      font-size: 36px;
+      line-height: 0;
     }
   }
   h2 {
     color: $white;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: $f-semi-bold;
     line-height: .8;
-    padding-bottom: 22px;
+    padding-bottom: 42px;
     span {
-      font-size: 14px;
+      font-size: 20px;
+      @media only screen and (min-width: $desktop) {
+        font-size: 14px;
+      }
+    }
+    @media only screen and (min-width: $desktop) {
+      font-size: 20px;
+      padding-bottom: 22px
     }
   }
   h3 {
     color: $white;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: $f-semi-bold;
     line-height: 1.2;
     margin-bottom: 0;
+    padding-bottom: 6px;
+    @media only screen and (min-width: $desktop) {
+      font-size: 18px;
+      padding-bottom: 0x;
+    }
   }
   .img-wrapper {
     background: $white;
     border: 1px solid #eee;
-    padding: 0;
+    padding: 30px;
     margin-bottom: 8px;
-    @media only screen and (min-width: $tablet) {
-        padding: 30px;
-      }
+    @media only screen and (min-width: $desktop) {
+      padding: 0;
+    }
   }
   li {
     display:inline-block;
@@ -109,13 +126,12 @@ li img {
       font-weight: $f-semi-bold;
       margin-bottom: 30px;
     }
-
     @include with-layout($gallery_layout_new) {
       @include gallery(6 of 12);
-       
-      @media only screen and (min-width: $desktop) {
+    }
+    @media only screen and (min-width: $desktop) {
+      @include with-layout($gallery_layout_new_desktop) {
         @include gallery(3 of 12); 
-        @include gutters(3em);
         span {
           margin-bottom: 0;
         }
@@ -130,25 +146,34 @@ li img {
 
 .podcasts-new-wrapper {
   @include container;
-  padding: 0 52px; 
+  padding: 0 45px; 
 }
 
 #newsletter-signup {
   background: $black;
   overflow: auto;
-  padding-top: 33px;
+  padding: 24px 0 33px 0;
   width: 100%;
   h2 {
     color: $white;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: $f-semi-bold;
     padding-bottom: 11px;
+    @media only screen and (min-width: $desktop) {
+      font-size: 20px;
+      padding-top: 33px;
+    }
   }
   p {
     color: $white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: $f-normal;
-    padding: 0 22px 15px;
+    line-height: 1.4;
+    padding: 0 22px 28px;
+    @media only screen and (min-width: $desktop) {
+      font-size: 16px;
+      padding: 0 22px 15px; 
+    }
   }
   input[type="email"] {
   	-webkit-appearance: none;
@@ -157,7 +182,7 @@ li img {
     box-sizing: border-box;
     border: none;
     color: $white;
-    font-size: 14px;
+    font-size: 18px;
     font-family: $font-family;
     height: 70px;
     padding: 0 1.2em;
@@ -170,6 +195,7 @@ li img {
     @media only screen and (min-width: $desktop) {
       height: 50px;
       width: 36%;
+      font-size: 14px;
     }
   }
   .btn {
@@ -185,7 +211,7 @@ li img {
     height: 70px;
     line-height: 34px;
     padding: 0 13px;
-    margin: 10px auto 38px;
+    margin: 10px auto 0;
     transition: background-color 250ms ease 0s, border-color 250ms ease 0s, color 250ms ease 0s;
     vertical-align: top;
     width: 85%;
@@ -210,13 +236,17 @@ li img {
   }
   .btn--large {
     font-family: $font-family;
-    font-size: 16px;
+    font-size: 21px;
     font-weight: $f-semi-bold;
     height: 70px;
     line-height: 50px;
     padding: 0 18px 0;
     @media only screen and (min-width: $tablet) {
       height: 50px;
+      font-size: 18px;
+    }
+    @media only screen and (min-width: $desktop) {
+      font-size: 16px;
     }
   }
   .btn, input[type=email]  {
@@ -244,28 +274,28 @@ li img {
     margin: 0 auto;
     margin-bottom: 50px;
     outline: none;
-    padding: 20px;
+    padding: 24px;
     position: relative;
     width: 85%;    
   	span {
   	  color: $black;
   	  display: block;
-  	  font-size: 18px;
-  	  font-weight: $f-semi-bold;
-  	  padding-top: 5px;
-  	  }
+  	  font-size: 24px;
+      font-weight: $f-semi-bold;
+      padding-top: 0;
+  	 }
     @media only screen and (min-width: $tablet) {
       display: none; 
     }
   }
   .category-dd-wrapper:after {
-    border-width: 6px 6px 0 6px;
+    border-width: 15px 15px 0 15px;
     border-style: solid;
     border-color: #ccc transparent;
     content: "";   
     height: 0;
     position: absolute;
-    right: 15px;
+    right: 26px;
     top: 50%;
     margin-top: -3px;
     width: 0;
@@ -287,30 +317,31 @@ li img {
   .category-dd-wrapper .dropdown:after {
     border-color: #fff transparent;
     border-style: solid;
-    border-width: 0 6px 6px 6px;    
+    border-width: 0 15px 15px 15px;    
     content: "";
     width: 0;
     height: 0;
     position: absolute;
     bottom: 100%;
-    right: 15px;   
+    right: 26px;   
   }
   .category-dd-wrapper .dropdown:before {
     border-color: rgba(0,0,0,0.1) transparent; 
     border-style: solid;
-    border-width: 0 8px 8px 8px;
+    border-width: 0 17px 17px 17px;
     content: "";
     width: 0;
     height: 0;
     position: absolute;
     bottom: 100%;
-    right: 13px;      
+    right: 24px;      
   }
   .category-dd-wrapper .dropdown li a {
     border-bottom: 1px solid #ccc;
     color: $black;
     display: block;
-    padding: 20px;
+    font-size: 24px;
+    padding: 26px;
     text-decoration: none;
     transition: all 250ms ease-out;
   }
@@ -383,16 +414,22 @@ li img {
   }
   h3 {
 	  color: $black;
-	  font-size: 16px;
+	  font-size: 24px;
 	  font-weight: $f-normal;
-	  line-height: 1.2;  
+	  line-height: 1.2; 
+    @media only screen and (min-width: $desktop) {
+      font-size: 16px;
+    } 
   }
   span {
 	  color: $black;
 	  display: block;
-	  font-size: 12px;
+	  font-size: 15px;
 	  font-weight: $f-normal;
 	  padding-top: 5px;
+    @media only screen and (min-width: $desktop) {
+      font-size: 12px;
+    } 
   }
   .img-wrapper {
     background: $white;
@@ -410,9 +447,10 @@ li img {
     padding-bottom: 55px;
     text-align: center;
     @include with-layout($gallery_layout_categorized) {
-      @include gallery(5 of 10); 
-
-      @media only screen and (min-width: $desktop) {
+      @include gallery(5 of 10);
+    }
+    @media only screen and (min-width: $desktop) {
+      @include with-layout($gallery_layout_categorized_desktop) {
         @include gallery(2 of 10); 
       }
     }
@@ -425,7 +463,7 @@ li img {
 
 .podcasts-categorized-wrapper {
   @include container;
-  padding: 0 42px; 
+  padding: 0 45px; 
 }
 
 #podcasts-other {
@@ -434,40 +472,54 @@ li img {
   padding-top: 50px;
   width: 100%;
   text-align: center;
-   @media only screen and (min-width: $tablet) {
-      text-align: center;
+  @media only screen and (min-width: $tablet) {
+    text-align: center;
   }
   @media only screen and (min-width: $desktop) {
-      text-align: left;
+    text-align: left;
   }
     h2 {
     color: $black;
-    font-size: 21px;
+    font-size: 27px;
     font-weight: $f-normal;
-    line-height: .8;
-    margin-bottom: 16px;
+    line-height: 1.2;
+    margin-bottom: 48px;
+    @media only screen and (min-width: $desktop) {
+      font-size: 21px;
+      line-height: .8;
+      margin-bottom: 16px;
+    }
     span {
-      font-size: 14px;
+      font-size: 18px;
+      @media only screen and (min-width: $desktop) {
+        font-size: 14px;
+      }
     }
   }
   h3 {
     color: $darkgray;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: $f-normal;
     line-height: 1.2;
+    @media only screen and (min-width: $desktop) {
+      font-size: 16px;
+    }
   }
-    span {
+  span {
     display: block;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: $f-normal;
     padding-top: 5px;
+    @media only screen and (min-width: $desktop) {
+      font-size: 12px;
+    }
   }
   .img-wrapper {
     background: $white;
     border: 1px solid #eee;
-    padding: 0;
     margin-bottom: 8px;
     margin-right: -2px;
+    padding: 0;
     @media only screen and (min-width: $tablet) {
         padding: 30px;
       }
@@ -479,18 +531,21 @@ li img {
     padding-bottom: 55px;
     text-align: center;
     @include with-layout($gallery_layout_other) {
-      @include gallery(5 of 10); 
-
-      @media only screen and (min-width: $desktop) {
+      @include gallery(5 of 10);
+    }
+    @media only screen and (min-width: $desktop) {
+      @include with-layout($gallery_layout_other_desktop) {
         @include gallery(2 of 10); 
       }
     }
   }
 }
 
+
+
 .podcasts-other-wrapper {
   @include container;
-  padding: 0 42px;
+  padding: 0 45px;
 }
 
 .podcast-page-new-amazing, .podcast-page-storytelling, .podcast-page-other-podcasts {

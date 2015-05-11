@@ -23,7 +23,10 @@ $susy: (
     toggle: top left,
   ),
 );
-
-$gallery_layout_new: layout( 12 .2 fluid float after);
-$gallery_layout_categorized: layout( 10 .001 fluid float after);
-$gallery_layout_other: layout( 10 .001 fluid float after);
+// Mobile-First
+$gallery_layout_new: layout( 12 10 fluid float after);
+$gallery_layout_new_desktop: layout( 12 .1 fluid float after);
+$gallery_layout_categorized: layout( 10 10 fluid float after);
+$gallery_layout_categorized_desktop: layout( 10 .001 fluid float after);
+$gallery_layout_other: layout( 10 10 fluid float after);
+$gallery_layout_other_desktop: layout( 10 .001 fluid float after);

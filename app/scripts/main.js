@@ -154,7 +154,7 @@ DropDown.prototype = {
 $(function() {
   'use strict';
   var dd = new DropDown( $('#dd'));
-
+  
   $(document).click(function() {
     $('.category-dd-wrapper').removeClass('active');
   });
