@@ -153,8 +153,12 @@ li img {
 #newsletter-signup {
   background: $black;
   overflow: auto;
-  padding: 24px 0 33px ;
+  padding: 27px 0 37px;
   width: 100%;
+  @media only screen and (min-width: $tablet) {
+    font-size: 20px;
+    padding: 27px 0 0;
+  }
   @media only screen and (min-width: $desktop) {
     font-size: 20px;
     padding: 0;
@@ -180,9 +184,12 @@ li img {
       padding: 0 22px 15px; 
     }
   }
+  input, .btn {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
   input[type="email"] {
-  	-webkit-appearance: none;
-    border-radius: none;
     background-color: $darkgray;
     box-sizing: border-box;
     border: none;
@@ -206,8 +213,6 @@ li img {
   .btn {
     background: none repeat scroll 0 0 transparent;
     border: 1px solid rgba(136, 136, 136, 0.5);
-    -webkit-appearance: none;
-    border-radius: none;
     box-sizing: border-box;
     color: #888;
     cursor: pointer;
@@ -506,6 +511,7 @@ li img {
     font-size: 20px;
     font-weight: $f-normal;
     line-height: 1.2;
+    padding: 5px 0 2px;
     @media only screen and (min-width: $desktop) {
       font-size: 16px;
     }
@@ -514,7 +520,6 @@ li img {
     display: block;
     font-size: 15px;
     font-weight: $f-normal;
-    padding-top: 5px;
     @media only screen and (min-width: $desktop) {
       display: inline;
       font-size: 12px;
