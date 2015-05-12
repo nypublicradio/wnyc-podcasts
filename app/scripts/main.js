@@ -96,7 +96,7 @@ $('.category-menu--item a').click(function(e) {
   'use strict';
     e.preventDefault();
     var endPoint = $(this).attr('data-slug');
-    var selector = '.podcast-page-categories';
+    var selector = '.podcast-page-slot-1';
   
   $.ajax ({
     url: [API_URL, API_PATH, endPoint].join('/'),
