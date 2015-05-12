@@ -52,7 +52,13 @@ var template = (function template() {
 // set some reused vars up here so we aren't dealing with long strings
 var API_URL = 'http://api.wnyc.org',
     API_PATH = 'api/v1/list/stories/bucket',
-    BUCKETS = ['podcast-page-new-amazing', 'podcast-page-storytelling', 'podcast-page-other-podcasts'],
+    BUCKETS = [
+      'podcast-page-new-amazing', 
+      'podcast-page-slot-1', 
+      'podcast-page-slot-2', 
+      'podcast-page-slot-3', 
+      'podcast-page-slot-4', 
+      'podcast-page-other-podcasts'],
     jsonpCallback = 'PODCASTS';
 
 // the items in the BUCKETS array match the selectors on their destination 
@@ -90,7 +96,7 @@ $('.category-menu--item a').click(function(e) {
   'use strict';
     e.preventDefault();
     var endPoint = $(this).attr('data-slug');
-    var selector = '.podcast-page-storytelling';
+    var selector = '.podcast-page-categories';
   
   $.ajax ({
     url: [API_URL, API_PATH, endPoint].join('/'),
@@ -135,7 +141,7 @@ DropDown.prototype = {
     'use strict';
     var obj = this;
 
-    obj.dd.on('click', function(event){
+    obj.dd.on('click', function(){
       $(this).toggleClass('active');
       return false;
     });
@@ -160,8 +166,4 @@ DropDown.prototype = {
 $(function() {
   'use strict';
   var dd = new DropDown( $('#dd'));
-
-  $(document).click(function() {
-    $('.category-dd-wrapper').removeClass('active');
-  }); 
 });
