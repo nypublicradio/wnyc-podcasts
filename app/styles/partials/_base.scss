@@ -81,11 +81,13 @@ li img {
     color: $white;
     font-size: 30px;
     font-weight: $f-semi-bold;
-    line-height: .8;
+    line-height: 1.2;
     padding-bottom: 36px;
     span {
+      display: block;
       font-size: 18px;
-      @media only screen and (min-width: $desktop) {
+      @media only screen and (min-width: $tablet) {
+        display: inline;
         font-size: 14px;
       }
     }
@@ -125,7 +127,7 @@ li img {
       display: block;
       font-size: 14px;
       font-weight: $f-semi-bold;
-      margin-bottom: 30px;
+      margin-bottom: 30%;
     }
     @include with-layout($gallery_layout_new) {
       @include gallery(6 of 12);
@@ -142,12 +144,15 @@ li img {
 }
 
 #podcasts-new li:last-child {
-  padding-bottom: 30px;
+  padding-bottom: 0;
+  @media only screen and (min-width: $desktop) {
+    padding-bottom: 3%;
+  }
 }
 
 .podcasts-new-wrapper {
   @include container;
-  padding: 0 45px; 
+  padding: 0 7%;
 }
 
 #newsletter-signup {
@@ -444,7 +449,7 @@ li img {
   .img-wrapper {
     background: $white;
     border: 1px solid #eee;
-    padding: 0;
+    padding: 20px;
     margin-bottom: 8px;
     margin-right: -2px;
     @media only screen and (min-width: $tablet) {
@@ -454,7 +459,7 @@ li img {
 
   li.podcast--item {
     display:inline-block;
-    padding-bottom: 55px;
+    padding-bottom: 16%;
     text-align: center;
     @include with-layout($gallery_layout_categorized) {
       @include gallery(5 of 10);
@@ -462,18 +467,22 @@ li img {
     @media only screen and (min-width: $desktop) {
       @include with-layout($gallery_layout_categorized_desktop) {
         @include gallery(2 of 10); 
+        padding-bottom: 5.5%;
       }
     }
   }
 }
 
 #podcasts-categorized li:last-child {
-  padding-bottom: 45px;
+  padding-bottom: 16%;
+  @media only screen and (min-width: $desktop) {
+    padding-bottom: 5.5%;
+  }
 }
 
 .podcasts-categorized-wrapper {
   @include container;
-  padding: 0 45px; 
+  padding: 0 8.5%;
 }
 
 #podcasts-other {
@@ -501,8 +510,10 @@ li img {
     }
     span {
       font-size: 18px;
+      padding-top: 5px;
       @media only screen and (min-width: $desktop) {
         font-size: 14px;
+        padding-top: 0;
       }
     }
   }
@@ -530,16 +541,17 @@ li img {
     border: 1px solid #eee;
     margin-bottom: 8px;
     margin-right: -2px;
-    padding: 0;
+    padding: 20px;
     @media only screen and (min-width: $tablet) {
         padding: 30px;
       }
   }
+
   li.podcast--item {
     display: inline-block;
     margin-left: 0;
     margin-right: 0;
-    padding-bottom: 55px;
+    padding-bottom: 16%;
     text-align: center;
     @include with-layout($gallery_layout_other) {
       @include gallery(5 of 10);
@@ -547,16 +559,15 @@ li img {
     @media only screen and (min-width: $desktop) {
       @include with-layout($gallery_layout_other_desktop) {
         @include gallery(2 of 10); 
+        padding-bottom: 5.5%;
       }
     }
   }
 }
 
-
-
 .podcasts-other-wrapper {
   @include container;
-  padding: 0 45px;
+  padding: 0 8.5%;
 }
 
 .podcast-page-new-amazing, .podcast-page-storytelling, .podcast-page-other-podcasts {
