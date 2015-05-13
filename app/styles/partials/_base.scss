@@ -57,6 +57,11 @@ li img {
   width: 100%;
   text-align: center;
     @media only screen and (min-width: $tablet) {
+      background: $darkgray url(" https://media2.wnyc.org/i/raw/1/skyline_1_bw.png") no-repeat 50% 50%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
       text-align: center;
     }
     @media only screen and (min-width: $desktop) {
@@ -67,7 +72,7 @@ li img {
     font-size: 54px;
     font-weight: $f-normal;
     line-height: 1.1;
-    padding: 50px 0 40px;
+    padding: 85px 0 40px;
     text-align: center;
     span {
       font-weight: $f-heavy;      
@@ -146,7 +151,7 @@ li img {
 #podcasts-new li:last-child {
   padding-bottom: 0;
   @media only screen and (min-width: $desktop) {
-    padding-bottom: 3%;
+    padding-bottom: 5%;
   }
 }
 
@@ -503,11 +508,11 @@ li img {
     font-size: 27px;
     font-weight: $f-normal;
     line-height: 1.2;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     @media only screen and (min-width: $desktop) {
       font-size: 21px;
       line-height: .8;
-      margin-bottom: 16px;
+      margin-bottom: 26px;
     }
     span {
       font-size: 18px;
