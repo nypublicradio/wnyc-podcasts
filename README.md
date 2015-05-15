@@ -14,3 +14,5 @@ By default, gulp-webapp uses libsass (gulp-sass) for compiling and while quicker
 - Run `gulp` to build your webapp for production
  
 Important: Make sure you have Ruby and susy's ruby gem installed as well as Bower (globally), then you can use this project with whatever preprocessor you like, Yeoman, Compass, etc. 
+
+One last quick tip: Once you have things working locally, you don't actually have to do the last step above. Just grab the CSS source from the browser while 'gulp serve' is running. You don't have to grab everything as there are some extra styles and a slight difference here and there in the local version. Best bet is to copy everything from the bottom of the CSS (minus the map at the very bottom) to the class called .hidden and replace in the superchunk.
